@@ -11,7 +11,7 @@
     "clean": "find ./dist -maxdepth 1 -mindepth 1 ! -name '.gitkeep' -exec rm -r {} +",
     "lint": "eslint --ext .vue,.js src/",
     "lint:fix": "eslint --ext .vue,.js --fix src/",
-    "format": "prettier --write ."
+    "formater": "prettier --write ."
   },
   "dependencies": {
     "ace-builds": "^1.23.4",
