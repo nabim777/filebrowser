@@ -9,4 +9,4 @@ Background:
 
 Scenario: create a file
     When user has added file "demo.txt" with content "hello world"
-    Then for user there should contain files "file.txt"
+    Then for user there should contain files "demo.txt"
