@@ -1,3 +1,5 @@
+const { format } = require("util")
+
 class CreateFilePage {
     constructor() {
         //url
@@ -13,6 +15,7 @@ class CreateFilePage {
         this.contentBoxSelector = '//textarea[@class="ace_text-input"]';
         this.saveIconSelector = '//i[contains(text(),"save")]';
         this.closeIconSelector = '//i[contains(text(),"close")]';
+        this.fileFolderSelector = '//div[p[contains(text(), "%s")]]//p[@class="name"]'; //div bhitra ko p vanni ko class name gareko hoii
     }
 
     async createNewFile(filename,content) {
@@ -23,6 +26,10 @@ class CreateFilePage {
         await page.fill(this.contentBoxSelector,content);
         await page.click(this.saveIconSelector);
         await page.click(this.closeIconSelector);
+    }
+
+    async getFileFoderName(fileName){
+        return page.innerText(format(this.fileFolderSelector,fileName));
     }
 }
 

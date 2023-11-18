@@ -13,6 +13,12 @@ When('user has added file {string} with content {string}', async function (filen
     await createFilePage.createNewFile(filename,content)
 });
 
-Then('for user there should contain files {string}', async function (string) {
-
+Then('for user there should contain files {string}', async function (fileName) {
+    const actualFile = await createFilePage.getFileFoderName(fileName);
+    const expectedFile = fileName;
+    assert.equal(
+        actualFile,
+        expectedFile,
+        `Expected File to be "${expectedFile}" but receive File "${actualFile}"`
+    )
 });
