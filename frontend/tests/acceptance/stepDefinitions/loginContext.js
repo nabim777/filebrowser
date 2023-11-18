@@ -25,4 +25,11 @@ When('user logs in with username {string} and password {string}', async function
 
 Then('user should redirect to the homepage', async function () {
     await expect(page).toHaveURL(loginPage.fileUrl);
+    const actualURL = await page.evaluate(() => document.location.href);
+    const expectedURL = 'http://localhost:8080/files/';
+    assert.equal(
+        actualURL,
+        expectedURL,
+        `Expected URL to be "${expectedURL}" but receive URL"${actualURL}"`
+    )
 });
