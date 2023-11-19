@@ -33,3 +33,13 @@ Then('user should redirect to the homepage', async function () {
         `Expected URL to be "${expectedURL}" but receive URL"${actualURL}"`
     )
 });
+
+Then('user should see the error message {string}', async function (message) {
+    const actualMesg = await page.innerText(loginPage.wrongMessageSelector);
+    const expectedMesg = message;
+    assert.equal(
+        actualMesg,
+        expectedMesg,
+        `Expected Message to be "${expectedMesg}" but receive Message"${actualMesg}"`
+    )
+  });
