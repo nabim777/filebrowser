@@ -8,4 +8,4 @@ Scenario: delete a file
     And the user has logged in with username "admin" and password "admin"
     And the user adds file "demo.txt" with content "hello world"
     When user has delete file "demo.txt"
-    # Then for user there should contain files "demo.txt"
+    # Then for user there should not contain files "demo.txt"

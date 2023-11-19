@@ -9,6 +9,6 @@ const assert = require("assert")
 const DeleteFilePage = require("../pageObjects/DeleteFilePage.js")
 const deleteFilePage = new DeleteFilePage;
 
-When('user has delete file {string}', async function (string) {
-    await deleteFilePage.deleteFile();
+When('user has delete file {string}', async function (fileName) {
+    await deleteFilePage.deleteFile(fileName);
 });
