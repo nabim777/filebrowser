@@ -9,6 +9,10 @@ const assert = require("assert")
 const CreateFilePage = require("../pageObjects/CreateFilePage.js");
 const createFilePage = new CreateFilePage;
 
+Given('the user adds file {string} with content {string}', async function (filename,content) {
+    await createFilePage.createNewFile(filename,content)
+});
+
 When('user has added file {string} with content {string}', async function (filename,content) {
     await createFilePage.createNewFile(filename,content)
 });
