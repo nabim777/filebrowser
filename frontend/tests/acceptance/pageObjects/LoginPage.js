@@ -9,6 +9,7 @@ class LoginPage {
         this.usernameSelector = '//input[@placeholder="Username"]'
         this.passwordSelector = '//input[@placeholder="Password"]'
         this.loginSelector = '//input[@type="submit"]'
+        this.wrongMessageSelector = '//div[@class="wrong"]'
     }
 
     async goToLoginUrl() {
