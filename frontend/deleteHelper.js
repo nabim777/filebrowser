@@ -24,18 +24,28 @@ async function createFolder(token){
     })
 }
 
-async function deleteFolder(token){
-    const deleteFile = await fetch.delete('api/resources/abcd',{
-        headers:{
-            'Content-Type': 'text/plain',
-            'X-Auth': `${token}`
-        }
-    })
+async function deleteFolder(){
+    if (fileFolderName.length == 0)
+    {
+        return
+    }
+    const token = await getToken();
+    for (let i = 0; i < fileFolderName.length; i++) {
+        fullurl = 'api/resources/' + fileFolderName[i]
+        const deleteFile = await fetch.delete(fullurl,{
+            headers:{
+                'Content-Type': 'text/plain',
+                'X-Auth': token
+            }
+        })
+      }   
 }
 // IIFE
 
-(async function(){
-    const token = await getToken();
-    // await createFolder(token);
-    await deleteFolder(token);
-})()
+// (async function(){
+//     const token = await getToken();
+//     // await createFolder(token);
+//     await deleteFolder(token);
+// })()
+
+module.exports = { deleteFolder }

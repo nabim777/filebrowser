@@ -26,6 +26,9 @@ class CreateFilePage {
         await page.fill(this.contentBoxSelector,content);
         await page.click(this.saveIconSelector);
         await page.click(this.closeIconSelector);
+        if(await this.getFileFoderName(filename) == filename){
+            fileFolderName.push(filename);
+        }
     }
 
     async getFileFoderName(fileName){
