@@ -15,6 +15,7 @@ Given('the user adds file {string} with content {string}', async function (filen
 
 When('user has added file {string} with content {string}', async function (filename,content) {
     await createFilePage.createNewFile(filename,content)
+    // console.log(await createFilePage.getFileFolderArray())
 });
 
 Then('for user there should contain files {string}', async function (fileName) {

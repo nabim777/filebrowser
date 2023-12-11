@@ -2,6 +2,10 @@
 
 const { Before, BeforeAll, AfterAll, After, setDefaultTimeout } = require("@cucumber/cucumber");
 const { chromium } = require("playwright");
+global.fileFolderName = [];
+
+//to make connection with deleteHelper.js
+const { deleteFolder } = require("./deleteHelper")
 
 setDefaultTimeout(30000)
 
@@ -28,4 +32,5 @@ Before(async function () {
 After(async function () {
   await global.page.close();
   await global.context.close();
+  deleteFolder();
 });
